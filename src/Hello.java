@@ -423,6 +423,8 @@ public class Hello {
 		System.out.println();
 		System.out.println("factoriel :");
 		System.out.println( factor(5));
+		System.out.println();
+		//
 
 		
 		
