@@ -269,6 +269,17 @@ public class Hello {
 		}   
 		return sum;
     }
+	
+	public static int factor(int fact)
+	{
+
+		if(fact==0){
+			return 1;
+		}
+		else{
+			return (fact * factor(fact -1));
+		}
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -408,6 +419,10 @@ public class Hello {
 		System.out.println();
 		System.out.println("Somme recursive d'un tableau :");
 		System.out.println( recursiveSum(monTableau, 0));
+		
+		System.out.println();
+		System.out.println("factoriel :");
+		System.out.println( factor(5));
 
 		
 		
