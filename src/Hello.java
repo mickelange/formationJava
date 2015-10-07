@@ -424,7 +424,20 @@ public class Hello {
 		System.out.println("factoriel :");
 		System.out.println( factor(5));
 		System.out.println();
-		//
+		
+/////////////////////////////////POO
+		
+		Book b = new Book();
+		b.titre = "java";
+		b.afficher();
+		Book c = new Book();
+		c.titre = "C#";
+		c.afficher();
+		Book d = new Book();
+		d.titre = "java";
+		d.afficher();
+		System.out.println("b et d sont ils identiques?:" + (b==d));
+		
 
 		
 		
