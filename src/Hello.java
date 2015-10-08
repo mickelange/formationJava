@@ -428,15 +428,42 @@ public class Hello {
 /////////////////////////////////POO
 		
 		Book b = new Book();
-		b.titre = "java";
+		b.setTitre("java");
 		b.afficher();
 		Book c = new Book();
-		c.titre = "C#";
+		c.setTitre("C#");
 		c.afficher();
 		Book d = new Book();
-		d.titre = "java";
+		d.setTitre("java");
 		d.afficher();
+		System.out.println(c.getTitre());
 		System.out.println("b et d sont ils identiques?:" + (b==d));
+		if(b==d){
+			System.out.println("b et d sont identiques" );
+		}
+		else{
+			System.out.println("b et d sont différents!" );
+		}
+		
+		Publisher editeur = new Publisher();
+		editeur.setId(12345);
+		editeur.setNom("hachette");
+		b.setEditeur(editeur);
+		System.out.println((b.getEditeur()).getNom());
+		//
+		Author auteur1 = new Author();
+		auteur1.firstName = "Elizabeth";
+		auteur1.lastName = "George";
+		
+		Author auteur2 = new Author();
+		auteur2.firstName = "Tom";
+		auteur2.lastName = "Clancy";
+		
+		b.addAuthor(auteur2);
+		b.addAuthor(auteur1);
+		b.displayAuthor();
+
+		
 		
 
 		
