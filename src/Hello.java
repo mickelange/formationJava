@@ -1,5 +1,11 @@
 import java.util.*;
 
+import com.m2i.formation.geometry.Counter;
+import com.m2i.formation.media.Author;
+import com.m2i.formation.media.Book;
+import com.m2i.formation.media.BookCategory;
+import com.m2i.formation.media.Publisher;
+
 
 public class Hello {
 
@@ -88,8 +94,8 @@ public class Hello {
 			tableau[i] =  randomno.nextInt(100);
 		}
 	}
-	
-	
+
+
 	public static int[] createRandomlyTab( int length){
 		int[] tab = new int[length];
 		Random rnd = new Random();
@@ -98,20 +104,20 @@ public class Hello {
 		}
 		return tab;
 	}
-	
-// put( int[]tab, int index,int value)
+
+	// put( int[]tab, int index,int value)
 	public static void put( int[]tab,int index, int value){
-		 tab[index] = value;
+		tab[index] = value;
 	}
-	
-//permut( int[]tab, int index,int index2)
+
+	//permut( int[]tab, int index,int index2)
 	public static void permut( int[]tab,int index, int index2){
 		int maVariable =  tab[index];
 		tab[index] = tab[index2];
 		tab[index2] = maVariable;
 	}
-	
-//permut( int[]tab, int index) permutte n et n-1
+
+	//permut( int[]tab, int index) permutte n et n-1
 	/*public static void permut2( int[]tab,int index){
 		int maVariable =  tab[index];
 		tab[index] = tab[index -1];
@@ -120,14 +126,14 @@ public class Hello {
 	public static void permut2( int[]tab,int index){
 		permut(tab, index, index -1);
 	}
-	
-//remove(int[]tab, int index) --> 1,2,3,4,5 remove( tab, 1) : 1,3,4,5,5
+
+	//remove(int[]tab, int index) --> 1,2,3,4,5 remove( tab, 1) : 1,3,4,5,5
 	public static void remove( int[]tab,int index){
 		for( int i= index;i<tab.length-1; i++){
 			tab[i] = tab[i+1];
 		}
 	}
-	
+
 	public static int[] clone(int[] tab){
 		int tab2[] = new int[tab.length];
 		for(int i =0; i<tab.length; i++){
@@ -135,44 +141,44 @@ public class Hello {
 		}
 		return tab2;
 	}
-	
+
 	// even : 12345... --> 24... 2 tableau de même taille
 	public static int[] even(int[] tab){
 		int tab2[] = new int[tab.length];
 		int j =0;
 		for(int i =0; i<tab.length; i++){
 			if(tab[i]%2 == 0){
-			tab2[j] = tab[i];
-			j++;
+				tab2[j] = tab[i];
+				j++;
 			}
 		}
 		return tab2;
 	}
-	
+
 	//inverse 12345 --> 54321
-	
+
 	public static int[] inverse(int[] tab){
 		int tab2[] = new int[tab.length];
-		
+
 		for(int i = 0;i<tab.length; i++){
 			tab2[tab.length-1-i] = tab[i];		
 		}
 		return tab2;
 	}
-	
+
 	//remove2 12345 --> 1245 avec taille du nouveau tableau = taille de l'ancien-1
 	public static int[] remove2(int[] tab, int index){
 		int tab2[] = new int[tab.length-1];
 		int nouvelIndex =0;
 		for(int i =0; i<tab.length; i++){
 			if(i != index ){
-			tab2[nouvelIndex] = tab[i];
-			nouvelIndex++;
+				tab2[nouvelIndex] = tab[i];
+				nouvelIndex++;
 			}
 		}
 		return tab2;
 	}
-	
+
 	//insert2 12345 --> 1299345
 	/*public static int[] insert2(int[] tab, int index, int value){
 		int tab2[] = new int[tab.length+1];
@@ -190,22 +196,22 @@ public class Hello {
 		}
 		return tab2;
 	}*/
-	
+
 	public static int[] insert2(int[] tab, int index, int value){
 		int[] tab2 = new int[tab.length+1];
 		for(int i = 0; i<index; i++){
-		tab2[i] = tab[i];	
+			tab2[i] = tab[i];	
 		}
 		tab2[index] = tab[index];
 		for(int i = index; i<tab.length; i++){
 			tab2[i +1] = tab[i];	
-			}
+		}
 		return tab2;
-		
+
 	}
-	
-	
-//insert(int[]tab, int index, int value) --> 1,2,3,4,5 insert( tab,2, 99) : 1,2,99,3,4
+
+
+	//insert(int[]tab, int index, int value) --> 1,2,3,4,5 insert( tab,2, 99) : 1,2,99,3,4
 
 	public static void insert( int[]tab,int index, int value){
 		for( int i= tab.length-1;i>index; i--)
@@ -214,9 +220,9 @@ public class Hello {
 		}
 		//tab[index] = value;
 		put(tab, index, value);
-		
+
 	}
-	
+
 	/**
 	 * Fonction bubbleSort
 	 * @param tab
@@ -235,8 +241,8 @@ public class Hello {
 
 		return result;
 	}
-	
-	
+
+
 	public static int[] minSort(int[] tab){
 		int[] tampon  = clone(tab);
 		int[] result  = clone(tab);
@@ -256,9 +262,9 @@ public class Hello {
 		}
 		return result;
 	}
-	
+
 	public static int recursiveSum(int[] tab, int indiceRecursif)
-    {
+	{
 		int sum = 0;
 		if(indiceRecursif == tab.length )
 		{
@@ -268,8 +274,8 @@ public class Hello {
 			sum = tab[indiceRecursif] +  recursiveSum(tab,indiceRecursif +1);
 		}   
 		return sum;
-    }
-	
+	}
+
 	public static int factor(int fact)
 	{
 
@@ -359,7 +365,7 @@ public class Hello {
 		System.out.println(" la somme des éléments du tableau : " + sum(monTableau));
 		System.out.println(" le maximum du tableau : " + max(monTableau));
 		System.out.println(" la moyenne du tableau : " + average(monTableau));
-		
+
 		int[] monTableau2 = createRandomlyTab(monTableau.length);
 		System.out.println(" mon tableau après random2 :");
 		display(monTableau2);
@@ -419,14 +425,14 @@ public class Hello {
 		System.out.println();
 		System.out.println("Somme recursive d'un tableau :");
 		System.out.println( recursiveSum(monTableau, 0));
-		
+
 		System.out.println();
 		System.out.println("factoriel :");
 		System.out.println( factor(5));
 		System.out.println();
-		
-/////////////////////////////////POO
-		
+
+		/////////////////////////////////POO
+
 		Book b = new Book();
 		b.setTitre("java");
 		b.afficher();
@@ -444,7 +450,7 @@ public class Hello {
 		else{
 			System.out.println("b et d sont différents!" );
 		}
-		
+
 		Publisher editeur = new Publisher();
 		editeur.setId(12345);
 		editeur.setNom("hachette");
@@ -452,23 +458,34 @@ public class Hello {
 		System.out.println((b.getEditeur()).getNom());
 		//
 		Author auteur1 = new Author();
-		auteur1.firstName = "Elizabeth";
-		auteur1.lastName = "George";
-		
+		auteur1.setFirstName("Elizabeth") ;
+		auteur1.setLastName("George");
+
 		Author auteur2 = new Author();
-		auteur2.firstName = "Tom";
-		auteur2.lastName = "Clancy";
-		
+		auteur2.setFirstName("Tom");
+		auteur2.setLastName("Clancy");
+
 		b.addAuthor(auteur2);
 		b.addAuthor(auteur1);
+		b.setCategory(BookCategory.SF);
 		b.displayAuthor();
 
+////test static
+		/*Counter c1 = new Counter();
+		Counter c2 = new Counter();
 		
+		System.out.println(c1.increment());
+		System.out.println(c2.increment());
+		System.out.println(c1.increment());
+		System.out.println(c2.increment());*/
+		System.out.println(Counter.increment());
+		System.out.println(Counter.increment());//marche car statique!
 		
 
-		
-		
-		
+
+
+
+
 
 	}
 }

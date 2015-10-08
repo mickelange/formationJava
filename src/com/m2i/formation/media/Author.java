@@ -1,7 +1,8 @@
+package com.m2i.formation.media;
 
 public class Author {
-	String firstName;
-	String lastName;
+	 private String firstName;
+	 private String lastName;
 	/**
 	 * @return the firstName
 	 */
@@ -26,6 +27,6 @@ public class Author {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+
 
 }
