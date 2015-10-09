@@ -64,7 +64,10 @@ public abstract class Media extends Item {
 		System.out.println(titre);
 	}
 
-	public void addAuthor( Author auteur) {
+	public void addAuthor( Author auteur) throws MediaException {
+		if(nbAuthors>10){
+			throw new MediaException("Too many authors");
+		}
 		authors[nbAuthors] = auteur;
 		nbAuthors++;	
 	}

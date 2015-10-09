@@ -1,6 +1,6 @@
 import java.util.*;
 
-import com.m2i.formation.geometry.*;
+//import com.m2i.formation.geometry.*;
 import com.m2i.formation.media.*;
 
 
@@ -462,8 +462,13 @@ public class Hello {
 		auteur2.setFirstName("Tom");
 		auteur2.setLastName("Clancy");
 
-		b.addAuthor(auteur2);
-		b.addAuthor(auteur1);
+		try {
+			b.addAuthor(auteur2);
+			b.addAuthor(auteur1);
+		} catch (MediaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		b.setCategory(BookCategory.SF);
 		b.displayAuthor();
 
