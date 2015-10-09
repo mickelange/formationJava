@@ -1,10 +1,7 @@
 import java.util.*;
 
-import com.m2i.formation.geometry.Counter;
-import com.m2i.formation.media.Author;
-import com.m2i.formation.media.Book;
-import com.m2i.formation.media.BookCategory;
-import com.m2i.formation.media.Publisher;
+import com.m2i.formation.geometry.*;
+import com.m2i.formation.media.*;
 
 
 public class Hello {
@@ -414,7 +411,7 @@ public class Hello {
 		System.out.println();
 		System.out.println("tableau avec valeur en plus :");
 		int[] tableau6 = insert2(monTableau, 2,99);
-		display(tableau6);*/
+		display(tableau6);
 		System.out.println("tableau trié avec tri a bulle :");
 		int[] tableau7 = bubbleSort(monTableau);
 		display(tableau7);
@@ -429,7 +426,7 @@ public class Hello {
 		System.out.println();
 		System.out.println("factoriel :");
 		System.out.println( factor(5));
-		System.out.println();
+		System.out.println();*/
 
 		/////////////////////////////////POO
 
@@ -477,12 +474,17 @@ public class Hello {
 		System.out.println(c1.increment());
 		System.out.println(c2.increment());
 		System.out.println(c1.increment());
-		System.out.println(c2.increment());*/
+		System.out.println(c2.increment());
 		System.out.println(Counter.increment());
-		System.out.println(Counter.increment());//marche car statique!
+		System.out.println(Counter.increment());//marche car statique!*/
 		
 
-
+		Media m = new Book();
+		m.setPrix(10);
+		double prix = m.getVAPrice();
+		System.out.println(prix);
+		
+		
 
 
 
