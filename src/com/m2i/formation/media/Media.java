@@ -83,7 +83,7 @@ public abstract class Media extends Item {
 		}
 	}
 	
-	public abstract double getVAPrice();
+	public abstract double getVATPrice();
 	
 }
 	

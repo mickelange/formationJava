@@ -284,6 +284,9 @@ public class Hello {
 		}
 	}
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String myPhrase = "Bonjour Michel! :o)";
@@ -347,12 +350,12 @@ public class Hello {
 		System.out.println ("L'addition de 4+5 est : " 
 				+ add(4,5));*/
 
-		System.out.println("---------- TD 5 Octobre ");
+		/*System.out.println("---------- TD 5 Octobre ");
 
 		int[] monTableau = {2,4,6,8,10,1,3,5,7,9};
 		display(monTableau);
 		System.out.println();
-		/*System.out.println(" la somme des éléments du tableau : " + sum(monTableau));
+		System.out.println(" la somme des éléments du tableau : " + sum(monTableau));
 		System.out.println(" le maximum du tableau : " + max(monTableau));
 		System.out.println(" la moyenne du tableau : " + average(monTableau));
 
@@ -430,7 +433,7 @@ public class Hello {
 
 		/////////////////////////////////POO
 
-		Book b = new Book();
+		/*Book b = new Book();
 		b.setTitre("java");
 		b.afficher();
 		Book c = new Book();
@@ -470,7 +473,7 @@ public class Hello {
 			e.printStackTrace();
 		}
 		b.setCategory(BookCategory.SF);
-		b.displayAuthor();
+		b.displayAuthor();*/
 
 ////test static
 		/*Counter c1 = new Counter();
@@ -484,13 +487,52 @@ public class Hello {
 		System.out.println(Counter.increment());//marche car statique!*/
 		
 
+	/*	Media m = new Book();
+		m.setPrix(10);
+		double prix = m.getVATPrice();
+		System.out.println(prix);*/
+		
+		
+		List<Book> listeLivres = CollectionTest.listTest();
+		System.out.println("Liste des livres avec une ArrayList : ");
+		for(Book b : listeLivres ){
+			System.out.println(b.getTitre());
+		}
+			
+		Set<Book> setLivres = CollectionTest.setTest();
+		System.out.println("Liste des livres avec un HashSet : ");
+		for(Book b : setLivres ){
+			System.out.println(b.getTitre());
+		}
+		
+		
+		Map<Integer,Book> mapLivres = CollectionTest.MapTest();
+		System.out.println("Liste des livres avec un HashSet : ");
+		for(Book b : mapLivres.values() ){
+			System.out.println(b.getTitre());
+		}
+		// autre façon de faire
+		for(int key : mapLivres.keySet()){
+			System.out.println(mapLivres.get(key).getTitre());
+		}
+		
+		//
+		
 		Media m = new Book();
 		m.setPrix(10);
-		double prix = m.getVAPrice();
-		System.out.println(prix);
+		Media m2 = new Cd();
+		m2.setPrix(10);
+		Media m3 = new Dvd();
+		m3.setPrix(10);
 		
-		
-
+		Cart monChariot  = new Cart();
+		monChariot.getMedias().add(m);
+		monChariot.getMedias().add(m2);
+		monChariot.getMedias().add(m3);
+	
+		double total = monChariot.getVATPrice();
+		System.out.println("le total de mon chariot");
+		System.out.println(total);
 
 
 
