@@ -1,8 +1,8 @@
 import java.io.*;
 import java.util.*;
 
-import com.m2i.formation.media.Book;
-import com.m2i.formation.media.Publisher;
+import com.m2i.formation.media.entities.Book;
+import com.m2i.formation.media.entities.Publisher;
 
 public class TestFile {
 
@@ -36,6 +36,8 @@ public class TestFile {
 			// traitement des lignes
 			StringTokenizer st = new StringTokenizer(line,",");
 			Book b = new Book();
+			//titre
+			b.setId(Integer.parseInt(st.nextToken()));	
 			//titre
 			b.setTitre(st.nextToken());		
 			//prix

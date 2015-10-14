@@ -1,4 +1,4 @@
-package com.m2i.formation.media;
+package com.m2i.formation.media.entities;
 
 @SuppressWarnings("serial")
 public class MediaException extends Exception {

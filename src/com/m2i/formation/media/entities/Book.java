@@ -1,4 +1,4 @@
-package com.m2i.formation.media;
+package com.m2i.formation.media.entities;
 
 
 public class Book  extends Media{
@@ -75,6 +75,17 @@ public class Book  extends Media{
 	@Override
 	public double getVATPrice(){
 		return 1.05*getPrix();
+	}
+	
+	public void afficherLivre(){
+		System.out.println("Information sur le livre : ");
+		System.out.print("ID : "+ this.getId()+ "; ");
+		System.out.print("Titre : "+ this.getTitre()+ "; ");
+		System.out.print("Prix : "+ this.getPrix()+ "; ");
+		System.out.print("Editeur : "+ (this.getEditeur()).getNom()+ "; ");
+		System.out.print("Nombre de pages : "+ this.getNbPages()+ "; ");
+		System.out.println();
+		
 	}
 
 

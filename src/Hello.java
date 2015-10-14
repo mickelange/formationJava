@@ -1,8 +1,8 @@
 import java.io.IOException;
 import java.util.*;
 
-//import com.m2i.formation.geometry.*;
-import com.m2i.formation.media.*;
+import com.m2i.formation.media.entities.*;
+import com.m2i.formation.media.repositories.BookRepository;
 
 
 public class Hello {
@@ -542,7 +542,7 @@ public class Hello {
 		Integer.toString(monEntier);*/
 
 		String monUri = "C:\\Formation\\TP\\Livres.csv";
-		TestFile monFichierTest = new TestFile(); 
+		/*TestFile monFichierTest = new TestFile(); 
 		try {
 			monFichierTest.readFile(monUri);
 			System.out.println();
@@ -558,10 +558,38 @@ public class Hello {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}*/
+		
+		//Singleton instance = Singleton.getInstance();
+		BookRepository myRepository = new BookRepository();
+		myRepository.setUri(monUri);
+		
+		try {
+			System.out.println(" trouver un libre a partir de sont ID ici ID = 0003 : ");
+			Book b  = myRepository.getById(0003);
+			b.afficherLivre();
+			
+			System.out.println(" trouver une liste de livre par prix inferieur a une valeur ici 19 : ");
+			List<Book> listeLivres  = myRepository.getByPrice(19);
+			for(Book b1 : listeLivres ){
+				
+				b1.afficherLivre();
+			}
+			
+			System.out.println(" trouver une liste de livre dont le titre contien un mot ici : le ");
+			List<Book> listeLivres2  = myRepository.getByTitle("le");
+			for(Book b1 : listeLivres2 ){
+				
+				b1.afficherLivre();
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
-		Singleton instance = Singleton.getInstance();
-
+	 
+		
 
 	}
 }
