@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.*;
 
 //import com.m2i.formation.geometry.*;
@@ -286,8 +287,9 @@ public class Hello {
 
 	/**
 	 * @param args
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		// TODO Auto-generated method stub
 		String myPhrase = "Bonjour Michel! :o)";
 		System.out.println(myPhrase);
@@ -475,37 +477,37 @@ public class Hello {
 		b.setCategory(BookCategory.SF);
 		b.displayAuthor();*/
 
-////test static
+		////test static
 		/*Counter c1 = new Counter();
 		Counter c2 = new Counter();
-		
+
 		System.out.println(c1.increment());
 		System.out.println(c2.increment());
 		System.out.println(c1.increment());
 		System.out.println(c2.increment());
 		System.out.println(Counter.increment());
 		System.out.println(Counter.increment());//marche car statique!*/
-		
 
-	/*	Media m = new Book();
+
+		/*	Media m = new Book();
 		m.setPrix(10);
 		double prix = m.getVATPrice();
 		System.out.println(prix);*/
-		
-		
-		List<Book> listeLivres = CollectionTest.listTest();
+
+
+		/*List<Book> listeLivres = CollectionTest.listTest();
 		System.out.println("Liste des livres avec une ArrayList : ");
 		for(Book b : listeLivres ){
 			System.out.println(b.getTitre());
 		}
-			
+
 		Set<Book> setLivres = CollectionTest.setTest();
 		System.out.println("Liste des livres avec un HashSet : ");
 		for(Book b : setLivres ){
 			System.out.println(b.getTitre());
 		}
-		
-		
+
+
 		Map<Integer,Book> mapLivres = CollectionTest.MapTest();
 		System.out.println("Liste des livres avec un HashSet : ");
 		for(Book b : mapLivres.values() ){
@@ -515,25 +517,50 @@ public class Hello {
 		for(int key : mapLivres.keySet()){
 			System.out.println(mapLivres.get(key).getTitre());
 		}
-		
+
 		//
-		
+
 		Media m = new Book();
 		m.setPrix(10);
 		Media m2 = new Cd();
 		m2.setPrix(10);
 		Media m3 = new Dvd();
 		m3.setPrix(10);
-		
+
 		Cart monChariot  = new Cart();
 		monChariot.getMedias().add(m);
 		monChariot.getMedias().add(m2);
 		monChariot.getMedias().add(m3);
-	
+
 		double total = monChariot.getVATPrice();
 		System.out.println("le total de mon chariot");
 		System.out.println(total);
 
+		String maChaine = "3";
+		int monEntier = Integer.getInteger(maChaine);
+		monEntier = Integer.parseInt(maChaine);
+		Integer.toString(monEntier);*/
+
+		String monUri = "C:\\Formation\\TP\\Livres.csv";
+		TestFile monFichierTest = new TestFile(); 
+		try {
+			monFichierTest.readFile(monUri);
+			System.out.println();
+			System.out.println("Tableau de livre a partir d\"un fichier : ");
+			List<Book> listeLivres = monFichierTest.readBooks(monUri);
+			for(Book b : listeLivres ){
+				System.out.print("Titre : "+ b.getTitre()+ "; ");
+				System.out.print("Prix : "+ b.getPrix()+ "; ");
+				System.out.print("Editeur : "+ (b.getEditeur()).getNom()+ "; ");
+				System.out.print("Nombre de pages : "+ b.getNbPages()+ "; ");
+				System.out.println();
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Singleton instance = Singleton.getInstance();
 
 
 	}
