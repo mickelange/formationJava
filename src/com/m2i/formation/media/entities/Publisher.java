@@ -1,6 +1,6 @@
 package com.m2i.formation.media.entities;
 
-public class Publisher {
+public class Publisher implements IEntity {
 	private int id;
 	private  String nom;
 	/**

@@ -1,7 +1,7 @@
 package com.m2i.formation.media.entities;
 
 
-public class Book  extends Media{
+public class Book  extends Media {
 
 	private String Isbn;
 //	private Date date;
@@ -87,6 +87,14 @@ public class Book  extends Media{
 		System.out.println();
 		
 	}
+
+	public int getEvaluation() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	
 
 
 	

@@ -1,6 +1,6 @@
 package com.m2i.formation.media.entities;
 
-public interface IItem {
+public interface IItem extends IEntity{
 
 	/**
 	 * @return the id
