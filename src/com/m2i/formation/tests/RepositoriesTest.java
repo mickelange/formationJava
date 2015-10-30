@@ -1,11 +1,12 @@
 package com.m2i.formation.tests;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.*;
 import org.junit.*;
 
 import com.m2i.formation.media.entities.*;
-import com.m2i.formation.media.repositories.BookRepository;
+import com.m2i.formation.media.repositories.*;
 
 public class RepositoriesTest {
 
@@ -91,6 +92,15 @@ public class RepositoriesTest {
 		bookRepo.insert(b);
 		Assert.assertEquals(nbBook+1,bookRepo.getAll().size());
 	
+	}
+	@Test
+	public void getAll() throws SQLException {
+		
+		BookDbRepository repo = new BookDbRepository();
+		List<Book> l = repo.getAll();
+		Assert.assertTrue(l.size()>0);
+			
+
 	}
 	
 

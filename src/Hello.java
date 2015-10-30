@@ -1,4 +1,11 @@
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
 
 import com.m2i.formation.media.entities.*;
@@ -7,6 +14,10 @@ import com.m2i.formation.media.repositories.BookRepository;
 
 public class Hello {
 
+	private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+	//private static final String JDBC_URL  = "jdbc:mysql://localhost/test";
+	//private static final String JDBC_User = "root";
+	//private static final String JDBC_PASS = "root";
 
 	/**
 	 * Fonction add
@@ -561,7 +572,7 @@ public class Hello {
 		}*/
 		
 		//Singleton instance = Singleton.getInstance();
-		BookRepository myRepository = new BookRepository();
+		/*BookRepository myRepository = new BookRepository();
 		myRepository.setUri(monUri);
 		
 		try {
@@ -586,9 +597,51 @@ public class Hello {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}*/
+		
+		Properties properties = new Properties();
+		try{
+			properties.load(new FileInputStream("src/config.properties"));
+		}catch(IOException e){
+			e.printStackTrace();
 		}
 		
-	 
+		String url = properties.getProperty("JDBC_URL");
+		String user = properties.getProperty("JDBC_User");
+		String pass = properties.getProperty("JDBC_PASS");
+
+		Connection conn = null;
+		Statement stmt = null;
+		
+		
+		try {
+			System.out.println("connecting ...");
+			conn = DriverManager.getConnection(url, user, pass);
+			
+			
+			/*System.out.println("create statement ...");
+			stmt = conn.createStatement();
+			String monUpdate = "INSERT INTO `test`.`media` (`Title`, `price`, `numISBN`, `nbPages`, `category`, `dateParution`, `langue`) VALUES ('Un gout de cendre ', '9.5', '12341', '300', '1', '2002-06-07', 'Anglais');";
+			int result = stmt.executeUpdate(monUpdate);
+			stmt.close();*/
+			
+			stmt = conn.createStatement();
+			String maRequete = "SELECT * FROM media";
+			ResultSet rs = stmt.executeQuery(maRequete);
+			
+			
+			while(rs.next()){
+				
+				System.out.print("Titre :"+rs.getString("title"));
+				System.out.println("--"+rs.getString("price"));
+			}
+			stmt.close();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 
 	}
